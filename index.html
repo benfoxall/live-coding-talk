@@ -32,6 +32,12 @@
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
 
+    <style media="screen">
+      .deet-error {
+        border-top: 3vh solid red
+      }
+    </style>
+
   </head>
 
   <body>
@@ -115,6 +121,34 @@
 
           el.addEventListener('change', () => localStorage.setItem(key, el.value))
         })
+
+
+      var config = {}
+      function checkDeets(){
+        config = JSON.parse(deets.value||'{}')
+
+        // fetch('http://localhost:5000/api/check',
+        fetch('https://www.cojs.co/api/check',
+          {
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              method: "POST",
+              body: deets.value
+          })
+          .then(function(res){
+            if(res.status !== 200) {
+              throw "deets error"
+            }
+          })
+          .then(
+            ok => document.body.classList.remove('deet-error'),
+            notok => document.body.classList.add('deet-error')
+          )
+      }
+      checkDeets()
+      deets.addEventListener('change', checkDeets)
     </script>
 
   </body>
