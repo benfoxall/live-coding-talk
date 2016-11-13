@@ -80,6 +80,82 @@
 
         </section>
 
+        <section>
+          <section>
+            <h1>Synth</h1>
+          </section>
+
+          <section data-co="co-synth-43ea132.txt">
+            start of synth demo
+          </section>
+
+          <section data-co="co-synth-eed6d32.txt">
+            create an audio context
+          </section>
+
+          <section data-co="co-synth-ceaa267.txt">
+            add an Oscillator node
+          </section>
+
+          <section data-co="co-synth-574d824.txt">
+            start and stop Oscillator node
+          </section>
+
+          <section data-co="co-synth-f8c2317.txt">
+            now connect to audio context to play to the speakers
+          </section>
+
+          <section data-co="co-synth-9a11111.txt">
+            wrap in function
+          </section>
+
+          <section data-co="co-synth-b4e037c.txt">
+            move audio off to another module
+          </section>
+
+          <section data-co="co-synth-62907bf.txt">
+            we add a frequency input
+          </section>
+
+          <section data-co="co-synth-253ffa5.txt">
+            add a play button
+          </section>
+
+          <section data-co="co-synth-648d02b.txt">
+            hook up interface
+          </section>
+
+          <section data-co="co-synth-dd1dbae.txt">
+            extract as handler function
+          </section>
+
+          <section data-co="co-synth-ebbbf73.txt">
+            extract form to module
+          </section>
+
+          <section data-co="co-synth-87962cf.txt">
+            insert analyser (Ruth will go into more detail later)
+          </section>
+
+          <section data-co="co-synth-0997ffe.txt">
+            draw waveform
+          </section>
+
+          <section data-co="co-synth-029eb92.txt">
+            implement drawWave
+          </section>
+
+          <section data-co="co-synth-eb86e4c.txt">
+            draw on rAF
+          </section>
+
+          <section data-co="co-synth-4d83b79.txt">
+            extract waveform to module
+          </section>
+
+
+        </section>
+
 
       </div>
 
@@ -110,6 +186,36 @@
 
         ]
       });
+
+
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        var slide = event.currentSlide
+        if(slide.dataset.co) {
+          console.log("YES " + slide.dataset.co)
+
+          fetch('code/' + slide.dataset.co)
+            .then(r => r.text())
+            .then(text => {
+              console.log(text)
+              fetch('https://www.cojs.co/api/content', {
+                credentials: 'same-origin',
+                method: 'PUT',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  key: config.key,
+                  token: config.token,
+                  value: text
+                })
+              })
+            })
+
+        }
+
+          // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      } )
 
 
 
