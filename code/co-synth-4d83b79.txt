@@ -1,0 +1,76 @@
+import {play, analyser} from 'audio.js'
+import {onSubmit} from 'form.js'
+import {visualise} from 'waveform.js'
+
+onSubmit( play )
+
+visualise( analyser )
+//____audio.js
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)
+
+export const analyser = audioCtx.createAnalyser()
+analyser.connect(audioCtx.destination)
+
+export const play = frequency => {
+
+  const osc = audioCtx.createOscillator()
+  osc.frequency.value = frequency
+
+  osc.start()
+  osc.stop(audioCtx.currentTime + .5)
+
+  osc.connect(analyser)
+
+}
+//____form.js
+const freq = document.createElement('input')
+freq.type = 'number'
+freq.value = 440
+document.body.appendChild(freq)
+
+const start = document.createElement('button')
+start.innerText = 'play'
+document.body.appendChild(start)
+
+export const onSubmit = (fn) => {
+  start.addEventListener('click', e =>
+    fn(freq.value)
+  )
+}
+//____waveform.js
+const canvas = document.createElement('canvas')
+canvas.style.position = 'static'
+canvas.style.display = 'block'
+document.body.appendChild(canvas)
+
+const ctx = canvas.getContext('2d')
+ctx.translate(0, canvas.height/2)
+
+const drawWave = data => {
+  ctx.clearRect(0,-canvas.height/2, canvas.width, canvas.height)
+  ctx.beginPath()
+  for(var i = 0; i < data.length; i++) {
+    ctx.lineTo(
+      (canvas.width/data.length*i),
+      (data[i]*10)
+    )
+  }
+  ctx.stroke()
+}
+
+export const visualise = (analyser) => {
+
+  const data = new Float32Array(analyser.fftSize)
+
+  function r(t){
+
+    analyser.getFloatTimeDomainData(data)
+
+    drawWave(data)
+
+    requestAnimationFrame(r)
+  }
+
+  r()
+
+}

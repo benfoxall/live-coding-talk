@@ -1,0 +1,17 @@
+co-synth-4d83b79.txt - extract waveform to module
+co-synth-eb86e4c.txt - draw on rAF
+co-synth-029eb92.txt - implement drawWave
+co-synth-0997ffe.txt - draw waveform
+co-synth-87962cf.txt - insert analyser (Ruth will go into more detail later)
+co-synth-ebbbf73.txt - extract form to module
+co-synth-dd1dbae.txt - extract as handler function
+co-synth-648d02b.txt - hook up interface
+co-synth-253ffa5.txt - add a play button
+co-synth-62907bf.txt - we add a frequency input
+co-synth-b4e037c.txt - move audio off to another module
+co-synth-9a11111.txt - wrap in function
+co-synth-f8c2317.txt - now connect to audio context to play to the speakers
+co-synth-574d824.txt - start and stop Oscillator node
+co-synth-ceaa267.txt - add an Oscillator node
+co-synth-eed6d32.txt - create an audio context
+co-synth-43ea132.txt - start of synth demo
