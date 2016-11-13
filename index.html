@@ -41,6 +41,13 @@
       <div class="slides">
         <section>
           <section>
+            <h3>…</h3>
+            <p>
+              <a href="https://www.cojs.co/api/details">deets &rarr;</a>
+              <input type="txt" id="deets" value="" data-persist="deets" style="font-size:1em">
+            </p>
+          </section>
+          <section>
             <h1>Live Coding Across Things</h1>
             <h5><a href="https://twitter.com/benjaminbenben">@benjaminbenben</a></h5>
           </section>
@@ -97,6 +104,17 @@
 
         ]
       });
+
+
+
+
+      Array.from(document.querySelectorAll('[data-persist]'))
+        .forEach( el => {
+          var key = el.dataset.persist
+          el.value = localStorage.getItem(key) || ''
+
+          el.addEventListener('change', () => localStorage.setItem(key, el.value))
+        })
     </script>
 
   </body>
