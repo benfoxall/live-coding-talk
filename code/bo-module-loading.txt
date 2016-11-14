@@ -1,0 +1,9 @@
+document.currentScript.className = 'visible'
+
+import {background} from 'util.js'
+
+background('#08f')
+//____util.js
+export const background = 
+  color =>
+    document.body.style.backgroundColor = color

@@ -1,0 +1,10 @@
+display_link('data:text/html,<h1>Hello!')
+
+// helper function
+function display_link(url){
+  const a = document.createElement('a')
+  a.href = a.innerText = url
+  a.target = '_blank'
+  a.className = 'dev_link'
+  document.body.appendChild(a)
+}
