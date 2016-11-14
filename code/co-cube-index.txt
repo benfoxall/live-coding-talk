@@ -1,29 +1,29 @@
-co-cube-bc5ed5a.txt - Populate that rotation from event
-co-cube-ca18814.txt - Let’s talk VR - bring in a rotation
-co-cube-9362b7f.txt - Add in a perspective mapper (pM.(v3->v4))->v3
-co-cube-e5198fe.txt - Utilise new rotation matrices
-co-cube-5d78568.txt - Add x,y,z matrices
-co-cube-ae2711a.txt - update rotate matrices to be 3x3
-co-cube-21b545e.txt - Update points and edges to be 3d (will break)
-co-cube-ef86313.txt - Extract drawEdges to draw.js
-co-cube-bf35391.txt - clean up points
-co-cube-f82036b.txt - call draw edges
-co-cube-4822200.txt - implement draw edges
-co-cube-bdd5e2c.txt - generate edges
-co-cube-f593f12.txt - combine matrices
-co-cube-1462570.txt - pull out transforms
-co-cube-76df535.txt - extract animation loop out
-co-cube-7a5466e.txt - animation loop
-co-cube-2892a3a.txt - extract matrix generators
-co-cube-5ed6fd6.txt - add rotation matrix
-co-cube-1e71e48.txt - introduce scale matrix
-co-cube-e87568c.txt - use matrices
-co-cube-1c1798e.txt - add resize listener
-co-cube-77f644d.txt - Make use of pixel ratio to scale down canvas
-co-cube-b77787c.txt - rotating the context, we can see blurryness
-co-cube-9a13a29.txt - extract canvas out
-co-cube-37182b8.txt - add a canvas/ctx
-co-cube-49a2c51.txt - implement draw points method
-co-cube-eb95170.txt - draw points
-co-cube-e479972.txt - start with some points
 co-cube-aefe75a.txt - Cube
+co-cube-e479972.txt - start with some points
+co-cube-eb95170.txt - draw points
+co-cube-49a2c51.txt - implement draw points method
+co-cube-37182b8.txt - add a canvas/ctx
+co-cube-9a13a29.txt - extract canvas out
+co-cube-b77787c.txt - rotating the context, we can see blurryness
+co-cube-77f644d.txt - Make use of pixel ratio to scale down canvas
+co-cube-1c1798e.txt - add resize listener
+co-cube-e87568c.txt - use matrices
+co-cube-1e71e48.txt - introduce scale matrix
+co-cube-5ed6fd6.txt - add rotation matrix
+co-cube-2892a3a.txt - extract matrix generators
+co-cube-7a5466e.txt - animation loop
+co-cube-76df535.txt - extract animation loop out
+co-cube-1462570.txt - pull out transforms
+co-cube-f593f12.txt - combine matrices
+co-cube-bdd5e2c.txt - generate edges
+co-cube-4822200.txt - implement draw edges
+co-cube-f82036b.txt - call draw edges
+co-cube-bf35391.txt - clean up points
+co-cube-ef86313.txt - Extract drawEdges to draw.js
+co-cube-21b545e.txt - Update points and edges to be 3d (will break)
+co-cube-ae2711a.txt - update rotate matrices to be 3x3
+co-cube-5d78568.txt - Add x,y,z matrices
+co-cube-e5198fe.txt - Utilise new rotation matrices
+co-cube-9362b7f.txt - Add in a perspective mapper (pM.(v3->v4))->v3
+co-cube-ca18814.txt - Let’s talk VR - bring in a rotation
+co-cube-bc5ed5a.txt - Populate that rotation from event
