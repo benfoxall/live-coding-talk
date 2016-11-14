@@ -28,8 +28,8 @@ loop( time => {
   const t =
     orientation
     .x(scale(2))
-    .x(rotateZ(time/3000))
-    .x(rotateX(time/1500))
+    .x(rotateZ(time/30000))
+    .x(rotateX(time/15000))
 
   drawEdges(edges, t, perspective)
 
