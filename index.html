@@ -406,8 +406,28 @@ say('yeah!')</code></pre>
 
 
         <section>
+          <section><h1>Why</h1></section>
+
+          <section>
+            <h1>1. multi-device development</h1>
+          </section>
+          <section>
+            <h1>2. social coding</h1>
+          </section>
+          <section>
+            <h1>3. workshops/talks</h1>
+          </section>
+
+        </section>
+
+
+        <section>
           <h1>Part 2</h1>
           <h2>Using the editor we just built</h2>
+        </section>
+
+        <section>
+          <h2><a href="#" class="cojs-link">cojs.co/?connect=</span></a></h2>
         </section>
 
 
@@ -465,7 +485,7 @@ say('yeah!')</code></pre>
           </section>
 
           <section data-co="co-synth-87962cf.txt">
-            insert analyser (Ruth will go into more detail later)
+            insert analyser <!--(Ruth will go into more detail later)-->
           </section>
 
           <section data-co="co-synth-0997ffe.txt">
@@ -484,6 +504,25 @@ say('yeah!')</code></pre>
             extract waveform to module
           </section>
 
+          <section>
+            <h1>440, 494, 523, 587</h1>
+          </section>
+
+          <section>
+            note to self:
+<pre><code>new Pusher('dc6a0545f9f460f6c5e1', {cluster: 'eu', encrypted: true})
+pusher.subscribe('midi')
+  .bind('message', (m) => {
+    const f = noteToFrequency(m[1])
+
+  if(m[0]==144)
+    synth.triggerAttack(f)
+
+note => 440 * Math.pow(2, (note-49)/12)
+</code></pre>
+
+          </section>
+
 
         </section>
 
@@ -492,7 +531,6 @@ say('yeah!')</code></pre>
           <section>
             <h1>Cubes</h1>
           </section>
-
 
           <section data-co="co-cube-aefe75a.txt"> Cube </section>
           <section data-co="co-cube-e479972.txt"> start with some points </section>
@@ -526,6 +564,40 @@ say('yeah!')</code></pre>
 
         </section>
 
+        <section>
+          <section><h2>That probably didn't work</h2></section>
+          <section>
+            <h3>Screen orientation</h3>
+            <h3>Differences in implementation/standard</h3>
+            <h3>Gimble lock</h3>
+            <h3>Sketchy coding</h3>
+          </section>
+          <section>
+            <h2>WebVR will fix this</h2>
+            <pre><code>navigator.getVRDisplays().then( displays =>
+  displays[0].getFrameData(…)</code></pre>
+          </section>
+          <section>
+            <h3>and more</h3>
+            <h2>WebVR Polyfill doesn't use deviceorientation</h2>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>…lastly</h2>
+          </section>
+          <section>
+            <h6>cardboctober.xyz</h6>
+            <img src="img/cardboctober.png" />
+          </section>
+        </section>
+
+
+        <section>
+          <h1>Thanks</h1>
+          <h2>@benjaminbenben</h2>
+        </section>
 
       </div>
 
