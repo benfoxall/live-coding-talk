@@ -81,7 +81,6 @@
 
           <section>
             <h1>Live Coding<br />Across Devices</h1>
-
           </section>
 
           <section>
@@ -93,7 +92,7 @@
           </section>
 
           <section>
-            <h3>For exploration, speed &amp; focus</h3>
+            <h3>For efficiency, focus &amp; exploration</h3>
             <h4 class="fragment">Also, performance &amp; art</h4>
           </section>
 
@@ -115,8 +114,7 @@
           <h2>What we'll cover</h2>
 
           <h5 class="fragment">1. Building a web-based live editor</h5>
-
-          <h5 class="fragment">2. Using the editor you just built</h5>
+          <h5 class="fragment">2. Using the editor we just built</h5>
 
           <!-- <h5>Squares</h5>
           <h5>"Music"</h5>
@@ -128,6 +126,7 @@
         <section>
 
           <section>
+            <h1>Part 1</h1>
             <h1>Building a web-based live editor</h1>
           </section>
 
@@ -285,6 +284,108 @@ say('yeah!')</code></pre>
             <h1>⚡️</h1>
           </section>
 
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Challenge</h2>
+            <h1>Injecting</h1>
+            <p>(normal answer: upload it somewhere)</p>
+          </section>
+
+          <section>
+            <h2>Option 1.</h2>
+            <h1>"upload" to Service Worker</h1>
+          </section>
+
+          <section>
+            <h3>Service workers</h3>
+            <ul>
+              <li>trendy</li>
+              <li>cool</li>
+              <li>persistant urls</li>
+              <li>overkill possibly</li>
+              <li>support is … <em>positive?</em></li>
+              <li>really cool</li>
+            </ul>
+          </section>
+
+
+          <section>
+            <h2>Option 2.</h2>
+            <h1>Data URIs</h1>
+          </section>
+
+          <section>
+            <h3>data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</h3>
+          </section>
+
+          <section>
+            <h2><a href="data:text/html,<h1>Hello!">data:text/html,&lt;h1&gt;Hello!</a></h2>
+          </section>
+
+          <section>
+            <pre><code>iframe.src = 'data:text/html;charset=utf-8,'+
+ '%3Cbody%3E%3Cscript%3E' +
+ encodeURI(source.value) +
+ '%3C/script%3E'</code></pre>
+          </section>
+
+          <section>
+            <h3>data-uris</h3>
+            <ul>
+              <li>lack of error handling</li>
+              <li>length limitations</li>
+              <li>random encoding issues</li>
+              <li>a JS String object</li>
+              <li>restrictions…</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/btoa.png" />
+          </section>
+
+
+          <section>
+            <h2>Option 3.</h2>
+            <h1>Blob URIs</h1>
+          </section>
+
+          <section>
+            <h3 style="text-align:left">b = new Blob(['…'], {type: 'text/html'})</h3>
+            <h3 style="text-align:left" class="fragment">url = URL.createObjectURL(b)</h3>
+            <h3 style="text-align:left" class="fragment">// "blob:https%3A/…/208…abcec02"</h3>
+          </section>
+
+          <section>
+            <pre><code>iframe.src = URL.createObjectURL(blob)</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <li>not stored on the stack</li>
+              <li>safe, and lots of control</li>
+              <li>sounds cool</li>
+            </ul>
+          </section>
+
+        </section>
+
+
+        <section>
+          <h2>~~~~~ Challenges ~~~~~</h2>
+          <h3>Making a textarea feel nice</h3>
+          <h3>Building JavaScripts</h3>
+          <h3>Module loading</h3>
+          <h3>Injection</h3>
+        </section>
+
+
+        <section>
+          <h1>Part 2</h1>
+          <h2>Using the editor we just built</h2>
         </section>
 
 
