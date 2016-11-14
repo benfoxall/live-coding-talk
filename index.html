@@ -13,6 +13,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
     <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
     <link rel="stylesheet" href="theme/pusher.css" id="theme">
 
@@ -45,24 +47,19 @@
     <div class="reveal">
 
       <div class="slides">
+
         <section>
-          <section>
-            <h3>…</h3>
-            <p>
-              <a href="https://www.cojs.co/api/details">deets &rarr;</a>
-              <input type="txt" id="deets" value="" data-persist="deets" style="font-size:1em">
-            </p>
-          </section>
-          <section>
-            <h1>Live Coding Across Things</h1>
-            <h5><a href="https://twitter.com/benjaminbenben">@benjaminbenben</a></h5>
-          </section>
+          <h3>…</h3>
+          <p>
+            <a href="https://www.cojs.co/api/details">deets &rarr;</a>
+            <input type="txt" id="deets" value="" data-persist="deets" style="font-size:1em">
+          </p>
         </section>
 
         <section>
-
           <section>
-            <h1>I'm Ben</h1>
+            <h1>Hello, I'm Ben</h1>
+            <h5><a href="https://twitter.com/benjaminbenben">@benjaminbenben</a></h5>
           </section>
 
           <section data-background="#27343d">
@@ -81,6 +78,217 @@
         </section>
 
         <section>
+
+          <section>
+            <h1>Live Coding<br />Across Devices</h1>
+
+          </section>
+
+          <section>
+            <h1>Live Coding</h1>
+          </section>
+
+          <section>
+            <h2>Automatically evaluated code</h2>
+          </section>
+
+          <section>
+            <h3>For exploration, speed &amp; focus</h3>
+            <h4 class="fragment">Also, performance &amp; art</h4>
+          </section>
+
+          <section>
+            <h1>Across Devices</h1>
+          </section>
+
+          <section>
+            <h2>Executes on many devices</h2>
+          </section>
+
+          <section>
+            <h3>For collaboration, testing, <br/>learning &amp; the hell of it</h3>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>What we'll cover</h2>
+
+          <h5 class="fragment">1. Building a web-based live editor</h5>
+
+          <h5 class="fragment">2. Using the editor you just built</h5>
+
+          <!-- <h5>Squares</h5>
+          <h5>"Music"</h5>
+          <h5>Cubes</h5>
+          <h5>+VR</h5> -->
+
+        </section>
+
+        <section>
+
+          <section>
+            <h1>Building a web-based live editor</h1>
+          </section>
+
+          <section>
+            <div class="image-4grid">
+              <img src="img/example-codepen.png"/>
+              <img src="img/example-jsbin.png"/>
+              <img src="img/example-jsfiddle.png"/>
+              <!-- <img src="img/example-requirebin.png"/> -->
+            </div>
+          </section>
+          <style media="screen">
+            .image-4grid img { width: 40%; }
+          </style>
+
+          <section>
+            <img src="img/code-along.png" class="fit" />
+          </section>
+
+          <section>
+            <h1>cojs.co</h1>
+          </section>
+
+          <section>
+            <h2>Totes meta</h2>
+            <a href="#" class="cojs-link">cojs.co/?connect=</span></a>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h1>Challenges</h1>
+          </section>
+
+          <section>
+            <img src="img/code-along-diagram.png" class="fit" />
+          </section>
+
+          <section>
+            <h3>Making a textarea feel nice</h3>
+            <h3>Building JavaScripts</h3>
+            <h3>Module loading</h3>
+            <h3>Injection</h3>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Challenge</h2>
+            <h1>Making a textarea feel nice</h1>
+          </section>
+
+          <section>
+            <img src="img/textarea.png" class="fit" />
+          </section>
+
+          <section>
+            <ul>
+              <li>Ace Editor</li>
+              <li>Monaco</li>
+              <li>CodeMirror</li>
+              <li><s>Atom</s></li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/codemirror.png" class="fit" />
+          </section>
+
+          <section>
+            <pre><code>CodeMirror.fromTextArea(source)
+
+// and tonnes more</code></pre>
+          </section>
+
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Challenge</h2>
+            <h1>Building Javascripts</h1>
+          </section>
+
+          <section>
+            <pre><code>const hey = you => console.log(`HELLO ${you}`)</code></pre>
+          </section>
+
+          <section>
+            <h1>Tracuer</h1>
+            <h1>Babel</h1>
+            <h1>Bublé</h1>
+          </section>
+
+          <section>
+            <h3>cojs.co uses Bublé</h3>
+            <ul>
+              <li>inspired by Babel</li>
+              <li>no shims / polyfills</li>
+              <li>simple transforms only</li>
+              <li>fast</li>
+              <li>less extensibility</li>
+              <li>node &rarr; browser</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code>buble.transform(source.value).code</code></pre>
+          </section>
+
+          <section>
+            <h1>⚡️</h1>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Challenge</h2>
+            <h1>Module Loading</h1>
+            <h4>Because sometimes we have more than one script</h4>
+          </section>
+
+          <section>
+            <pre><code>// commonjs
+const utils = require('utils')
+utils.say('yeah!')
+
+
+// ES2015 modules
+import {say} from 'utils'
+say('yeah!')</code></pre>
+          </section>
+
+          <section>
+            <h1>Webpack</h1>
+            <h1>Browserify</h1>
+            <h1>Rollup</h1>
+          </section>
+
+          <section>
+            <h3>cojs.co uses Rollup</h3>
+            <ul>
+              <li>embracing ES2015 modules</li>
+              <li>minimal code-rewriting</li>
+              <li>tree shaking</li>
+              <li>d3, THREE.js</li>
+            </ul>
+          </section>
+
+          <section>
+            <h1>⚡️</h1>
+          </section>
+
+        </section>
+
+
+        <section data-background="#27343d">
           <section>
             <h1>Synth</h1>
           </section>
@@ -252,6 +460,16 @@
             ok => document.body.classList.remove('deet-error'),
             notok => document.body.classList.add('deet-error')
           )
+
+        Array.from(document.querySelectorAll('.cojs-link'))
+          .forEach(a => {
+            var link = 'https://www.cojs.co/?connect=' + config.key
+            var short = 'cojs.co?connect=' + config.key
+
+            a.href = link
+            a.innerText = short
+          })
+
       }
       checkDeets()
       deets.addEventListener('change', checkDeets)

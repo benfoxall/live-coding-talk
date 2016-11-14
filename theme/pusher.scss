@@ -14,7 +14,12 @@
 
 
 // Include theme-specific fonts
-@import url(../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+// @import url(../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Fredoka One', cursive;
+
+hr {border:0; height: 2px; background: #27343d; border-radius: 2px;opacity: 0.25;max-width: 70%}
 
 $brandPink: #f4065f;
 $brandDrkBlue: #27343d;
@@ -29,8 +34,8 @@ $mainColor: $brandDrkBlue;
 $headingColor: $brandDrkBlue;
 
 $mainFontSize: 38px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: 'Montserrat', Helvetica, sans-serif;
+$headingFont: 'Montserrat', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
