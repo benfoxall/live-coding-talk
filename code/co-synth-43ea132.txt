@@ -1,1 +1,1 @@
-//main.js
+// Web Audio demo
