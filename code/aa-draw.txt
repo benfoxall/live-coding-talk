@@ -1,0 +1,44 @@
+import {loop} from 'draw.js'
+
+//____draw.js
+export const canvas = document.createElement('canvas')
+document.body.appendChild(canvas)
+
+export const ctx = canvas.getContext('2d')
+
+const ratio = window.devicePixelRatio || 1
+
+export const w = canvas.width = window.innerWidth * ratio
+export const h = canvas.height = window.innerHeight * ratio
+
+canvas.style.width = `${window.innerWidth}px`
+canvas.style.height = `${window.innerHeight}px`
+
+ctx.translate(Math.floor(w/2),Math.floor(h/2))
+ctx.scale(ratio,ratio)
+
+export const clear = () => ctx.clearRect(-w/2, -h/2, w, h)
+
+
+const rAF = window.requestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          (_ => void(0))
+
+const cAF = window.cancelAnimationFrame ||
+          window.mozCancelAnimationFrame ||
+          (_ => void(0))
+
+
+export const loop = fn => {
+  const wrap = t => {
+    const r = rAF(wrap)
+    try {
+      fn(t/1000)
+    } catch (e) {
+      cAF(r)
+    }
+  }
+  rAF(wrap)
+}
