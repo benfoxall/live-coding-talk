@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="theme/pusher.css" id="theme">
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+    <!-- <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css"> -->
+    <link rel="stylesheet" href="tomorrow.css">
+    <style media="screen">
+      .reveal pre {box-shadow: none;padding:.5em}
+    </style>
 
     <!-- Printing and PDF exports -->
     <script>
@@ -57,13 +61,15 @@
         </section>
 
         <section>
-          <h1>Live Coding<br />Across Devices</h1>
-          <!-- <h3><a href="https://twitter.com/@benjaminbenben">@benjaminbenben</a></h3> -->
-        </section>
 
-        <section>
+
           <section>
-            <h1>Hello, I'm Ben</h1>
+            <h1>Hello Frontier</h1>
+            <h2 class="fragment">👏 Adam, John &amp; everyone </h2>
+          </section>
+
+          <section>
+            <h1>I'm Ben</h1>
             <h5><a href="https://twitter.com/benjaminbenben">@benjaminbenben</a></h5>
           </section>
 
@@ -71,14 +77,14 @@
             <img src="img/pusher_logo_white.svg" class="stretch" />
           </section>
 
-          <section>
+          <!-- <section>
             <img src="img/jsoxford.svg" class="stretch" />
           </section>
 
           <section>
             <img src="img/render.png" class="stretch" />
             <h4>render-conf.com</h4>
-          </section>
+          </section> -->
 
         </section>
 
@@ -162,334 +168,143 @@
             data-background-position="50% 122%">
             <h3>3. Connected</h3>
           </section>
-<!-- feature-connection.png -->
-<!-- feature-es2015.png -->
-<!-- feature-modules.png -->
-
-        </section>
-
-
-
-        <section>
-          <h2>What we'll cover</h2>
-
-          <h5 class="fragment">1. Building a web-based live editor</h5>
-          <h5 class="fragment">2. Using the editor we just built</h5>
-
-          <!-- <h5>Squares</h5>
-          <h5>"Music"</h5>
-          <h5>Cubes</h5>
-          <h5>+VR</h5> -->
-
-        </section>
-
-        <section>
-
-          <section>
-            <h1>Part 1</h1>
-            <h1>Building a web-based live editor</h1>
-          </section>
-
-          <section>
-            <div class="image-4grid">
-              <img src="img/example-codepen.png"/>
-              <img src="img/example-jsbin.png"/>
-              <img src="img/example-jsfiddle.png"/>
-              <!-- <img src="img/example-requirebin.png"/> -->
-            </div>
-          </section>
-          <style media="screen">
-            .image-4grid img { width: 40%; }
-          </style>
-
-          <section>
-            <img src="img/code-along.png" class="stretch" />
-          </section>
-
-          <section>
-            <h1>cojs.co</h1>
-          </section>
-
-          <section>
-            <h2>Totes meta</h2>
-            <a href="#" class="cojs-link">cojs.co/?…pan></a>
-          </section>
-
-        </section>
-
-        <section>
-
-          <section>
-            <h1>Challenges</h1>
-          </section>
-
-          <section>
-            <img src="img/code-along-diagram.png" class="stretch" />
-          </section>
-
-          <section>
-            <h3>Making a textarea feel nice</h3>
-            <h3>Building JavaScripts</h3>
-            <h3>Module loading</h3>
-            <h3>Injection</h3>
-          </section>
 
         </section>
 
         <section>
           <section>
-            <h2>Challenge</h2>
-            <h1>Making a textarea feel nice</h1>
+            <h1>How it works</h1>
           </section>
 
           <section>
-            <img src="img/textarea.png" class="stretch" />
+              <img src="img/technically.png" class="stretch" />
           </section>
 
           <section>
-            <ul>
-              <li>Ace Editor</li>
-              <li>Monaco</li>
-              <li>CodeMirror</li>
-              <li>…</li>
-              <li>Atom</li>
-              <li>Hyperterm</li>
-            </ul>
+
+            <h3>For people who like code stuff</h3>
+            <pre><code>rollup.rollup({
+  entry: 'main.js',
+  load: id => files[name] || Promise.reject("not found"),
+  transformBundle: buble.transform(d).code
+}).then(
+  bundle => bundle.generate({ format: 'iife' }).code
+).then(
+  js => '&lt;html&gt;… &lt;script&gt;' + js + '&lt;/script&gt;'
+).then(
+  htm => new Blob([htm], {type: 'text/html'})
+).then(
+  blob => URL.createObjectURL(blob)
+).then(
+  url => iframe.src = url
+)</code></pre>
           </section>
 
-          <section>
-            <img src="img/codemirror.png" class="stretch" />
-          </section>
-
-          <section>
-            <pre><code>CodeMirror.fromTextArea(source)
-
-// and tonnes more</code></pre>
-          </section>
-
-        </section>
-
-
-        <section>
-          <section>
-            <h2>Challenge</h2>
-            <h1>Building Javascripts</h1>
-          </section>
-
-          <section>
-            <pre><code>const hey = you => console.log(`HELLO ${you}`)</code></pre>
-          </section>
-
-          <section>
-            <h1>Tracuer</h1>
-            <h1>Babel</h1>
-            <h1>Bublé</h1>
-          </section>
-
-          <section>
-            <h3>cojs.co uses Bublé</h3>
-            <ul>
-              <li>inspired by Babel</li>
-              <li>no shims / polyfills</li>
-              <li>simple transforms only</li>
-              <li>fast</li>
-              <li>less extensibility</li>
-              <li>node &rarr; browser</li>
-            </ul>
-          </section>
-
-          <section>
-            <pre><code>buble.transform(source.value).code</code></pre>
-          </section>
-
-          <section data-co="bo-es6.txt">
-            <h1>⚡️</h1>
-          </section>
 
         </section>
 
         <section>
           <section>
-            <h2>Challenge</h2>
-            <h1>Module Loading</h1>
-            <h4>Because sometimes we have more than one script</h4>
+            <h1>What it can do</h1>
           </section>
 
           <section>
-            <pre><code>// commonjs
-const utils = require('utils')
-utils.say('yeah!')
-
-
-// ES2015 modules
-import {say} from 'utils'
-say('yeah!')</code></pre>
+            <svg id="single" width="960px" height="700px" viewBox="0 0 600 454" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <rect fill="#FFFFFF" x="28.3743842" y="59.1133005" width="543.251232" height="350.541872"></rect>
+                    <image x="0" y="0" width="600" height="453.399015" xlink:href="img/chrome-outline.png"></image>
+                    <text font-family="RobotoMonoForPowerline-Light, Roboto Mono Light for Powerline" font-size="45" font-weight="300" fill="#000000">
+                        <tspan x="109.991211" y="230">#eee</tspan>
+                    </text>
+                    <rect fill="#EEEEEE" x="300" y="59.1133005" width="271.625616" height="350.541872"></rect>
+                </g>
+            </svg>
           </section>
 
           <section>
-            <h1>Webpack</h1>
-            <h1>Browserify</h1>
-            <h1>Rollup</h1>
+
+            <svg id="panels" width="960px" height="700px" viewBox="0 0 600 454" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <rect fill="#FFFFFF" x="28.3743842" y="59.1133005" width="543.251232" height="350.541872"></rect>
+                    <image x="0" y="0" width="600" height="453.399015" xlink:href="img/chrome-outline.png"></image>
+                    <text font-family="RobotoMonoForPowerline-Light, Roboto Mono Light for Powerline" font-size="45" font-weight="300" fill="#000000">
+                        <tspan x="109.991211" y="230">#eee</tspan>
+                    </text>
+                    <rect fill="#EEEEEE" x="300" y="59.1133005" width="271.625616" height="350.541872"></rect>
+                </g>
+            </svg>
+            <style media="screen">
+              #panels g {
+                transition: 1s transform
+              }
+              #panels rect {
+                transition: .5s fill
+              }
+            </style>
+            <script type="text/javascript">
+              var _win = document.querySelector('#panels g')
+
+              for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 5; j++) {
+
+                  var clone = _win.cloneNode(true)
+                  clone.style.transform = 'translate('+i*100+'px, '+j*90+'px) scale(0.14)'
+
+                  _win.parentNode.appendChild(clone)
+
+                }
+              }
+              _win.remove()
+            </script>
           </section>
-
-          <section>
-            <h3>cojs.co uses Rollup</h3>
-            <ul>
-              <li>embracing ES2015 modules</li>
-              <li>minimal code-rewriting</li>
-              <li>tree shaking</li>
-              <li>d3, THREE.js</li>
-            </ul>
-          </section>
-
-          <section data-co="bo-module-loading.txt">
-            <h1>⚡️</h1>
-          </section>
-
-        </section>
-
-
-        <section>
-          <section>
-            <h2>Challenge</h2>
-            <h1>Injecting</h1>
-            <p>(normal answer: upload it somewhere)</p>
-          </section>
-
-          <section>
-            <h2>Option 1.</h2>
-            <h1>"upload" to Service Worker</h1>
-          </section>
-
-          <section>
-            <h3>Service workers</h3>
-            <ul>
-              <li>trendy</li>
-              <li>cool</li>
-              <li>persistant urls</li>
-              <li>overkill possibly</li>
-              <li>support is … <em>positive?</em></li>
-              <li>really cool</li>
-            </ul>
-          </section>
-
-
-          <section>
-            <h2>Option 2.</h2>
-            <h1>Data URIs</h1>
-          </section>
-
-          <section>
-            <h3>data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</h3>
-          </section>
-
-          <section>
-            <h2><a href="data:text/html,<h1>Hello!">data:text/html,&lt;h1&gt;Hello!</a></h2>
-          </section>
-
-          <section data-co="bo-data-uri.txt">
-            <h1>⚡️</h1>
-          </section>
-
-          <section>
-            <pre><code>iframe.src = 'data:text/html;charset=utf-8,'+
- '%3Cbody%3E%3Cscript%3E' +
- encodeURI(source.value) +
- '%3C/script%3E'</code></pre>
-          </section>
-
-          <section>
-            <h3>data-uris</h3>
-            <ul>
-              <li>lack of error handling</li>
-              <li>length limitations</li>
-              <li>random encoding issues</li>
-              <li>a JS String object</li>
-              <li>restrictions…</li>
-            </ul>
-          </section>
-
-          <section>
-            <img src="img/btoa.png" />
-          </section>
-
-
-          <section>
-            <h2>Option 3.</h2>
-            <h1>Blob URIs</h1>
-          </section>
-
-          <section>
-            <h3 style="text-align:left">b = new Blob(['…'], {type: 'text/html'})</h3>
-            <h3 style="text-align:left" class="fragment">url = URL.createObjectURL(b)</h3>
-            <h3 style="text-align:left" class="fragment">// "blob:https%3A/…/208…abcec02"</h3>
-          </section>
-
-          <section data-co="bo-blob-uri.txt">
-            <h1>⚡️</h1>
-          </section>
-
-          <section>
-            <pre><code>iframe.src = URL.createObjectURL(blob)</code></pre>
-          </section>
-
-          <section>
-            <ul>
-              <li>not stored on the stack</li>
-              <li>safe, and lots of control</li>
-              <li>sounds cool</li>
-            </ul>
-          </section>
-
-        </section>
-
-
-        <section>
-          <h2>~~~~~ Challenges ~~~~~</h2>
-          <h3>Making a textarea feel nice</h3>
-          <h3>Building JavaScripts</h3>
-          <h3>Module loading</h3>
-          <h3>Injection</h3>
-        </section>
-
-
-        <section>
-          <section><h1>Why</h1></section>
-
-          <section>
-            <h1>1. multi-device development</h1>
-          </section>
-          <section>
-            <h1>2. social coding</h1>
-          </section>
-          <section>
-            <h1>3. workshops/talks</h1>
-          </section>
-
-        </section>
-
-
-        <section>
-          <h1>Part 2</h1>
-          <h2>Using the editor we just built</h2>
         </section>
 
         <section>
-          <h2><a href="#" class="cojs-link">cojs.co/?…</span></a></h2>
+          <h2>/talk</h2>
         </section>
 
+        <section data-background="#27343d" data-co="aa-start.txt">
+          <h3>let's do this</h3>
+          <h1><a href="#" class="cojs-link">cojs.co/?…</span></a></h1>
+        </section>
 
         <section data-background="#27343d">
           <section>
-            <h1>Synth</h1>
+            <h1>1. Drawing stuff</h1>
+          </section>
+          <section data-co="aa-draw.txt">
+            <h3><a href="https://www.cojs.co/?independent">import {loop} from 'draw.js'</a></h3>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>I probably made some mistakes</h2>
+            <h3>(Live-coding doesn't go to plan)</h3>
+          </section>
+          <section>
+            <h2>"api"</h2>
+            <h4>populating an editor from other sources</h4>
+            <h5>(eg. a slide deck)</h5>
+          </section>
+        </section>
+
+        <section data-background="#27343d">
+          <section data-co="co-synth-43ea132.txt">
+            <h1>2. WebAudio</h1>
           </section>
 
-          <section data-co="co-synth-43ea132.txt">
-            start of synth demo
+          <section>
+            <h3>Audio graph</h3>
+            <img src="img/webaudio-nodes.png" />
+          </section>
+
+          <section>
+            <h5> &rarr; <a href="#" class="cojs-link">cojs.co/?…</span></a></h5>
           </section>
 
           <section data-co="co-synth-eed6d32.txt">
-            create an audio context
+            start an Audio Context
           </section>
 
           <section data-co="co-synth-ceaa267.txt">
@@ -552,23 +367,12 @@ say('yeah!')</code></pre>
             extract waveform to module
           </section>
 
-          <section>
+          <!-- <section>
             <h1>440, 494, 523, 587</h1>
-          </section>
+          </section> -->
 
-          <section>
-            note to self:
-<pre><code>new Pusher('dc6a0545f9f460f6c5e1', {cluster: 'eu', encrypted: true})
-pusher.subscribe('midi')
-  .bind('message', (m) => {
-    const f = noteToFrequency(m[1])
-
-  if(m[0]==144)
-    synth.triggerAttack(f)
-
-note => 440 * Math.pow(2, (note-49)/12)
-</code></pre>
-
+          <section data-co="aa-synth-pusher.txt">
+            <h3>+ keyboard</h3>
           </section>
 
 
@@ -576,8 +380,17 @@ note => 440 * Math.pow(2, (note-49)/12)
 
 
         <section data-background="#27343d">
+
           <section>
-            <h1>Cubes</h1>
+            <h1>3. Cubes</h1>
+          </section>
+
+          <section>
+            <h2>CSS transforms</h2>
+          </section>
+
+          <section>
+            <h3>transform: rotate(45deg) transform(100px, 50px)</h3>
           </section>
 
           <section data-co="co-cube-aefe75a.txt"> Cube </section>
@@ -606,9 +419,10 @@ note => 440 * Math.pow(2, (note-49)/12)
           <section data-co="co-cube-ae2711a.txt"> update rotate matrices to be 3x3 </section>
           <section data-co="co-cube-5d78568.txt"> Add x,y,z matrices </section>
           <section data-co="co-cube-e5198fe.txt"> Utilise new rotation matrices </section>
-          <section data-co="co-cube-9362b7f.txt"> Add in a perspective mapper (pM.(v3->v4))->v3 </section>
-          <section data-co="co-cube-ca18814.txt"> Let’s talk VR - bring in a rotation </section>
-          <section data-co="co-cube-bc5ed5a.txt"> Populate that rotation from event </section>
+          <section data-co="co-cube-9362b7f.txt"> homogeneous coordinates<br/>
+          &amp; perspective transform </section>
+          <section data-co="co-cube-ca18814.txt"> Let’s try VR - introduce an orientation </section>
+          <section data-co="co-cube-bc5ed5a.txt"> populate from orientationevent </section>
 
         </section>
 
@@ -616,22 +430,20 @@ note => 440 * Math.pow(2, (note-49)/12)
           <section><h2>That probably didn't work</h2></section>
           <section>
             <h3>Screen orientation</h3>
-            <h3>Differences in implementation/standard</h3>
             <h3>Gimble lock</h3>
-            <h3>Sketchy coding</h3>
+            <h3>Implementations</h3>
+            <h3>A hack</h3>
           </section>
           <section>
-            <h2>WebVR will fix this</h2>
-            <pre><code>navigator.getVRDisplays().then( displays =>
-  displays[0].getFrameData(…)</code></pre>
+            <h2>WebVR - not a hack</h2>
           </section>
-          <section>
+          <!-- <section>
             <h3>and more</h3>
             <h2>WebVR Polyfill doesn't use deviceorientation</h2>
-          </section>
+          </section> -->
         </section>
 
-        <section>
+        <!-- <section>
           <section>
             <h2>…lastly</h2>
           </section>
@@ -639,13 +451,31 @@ note => 440 * Math.pow(2, (note-49)/12)
             <h6>cardboctober.xyz</h6>
             <img src="img/cardboctober.png" />
           </section>
+        </section> -->
+
+        <section>
+          <section>
+            <h2>What <em>you've</em> done</h2>
+            <h3>Drawn some stuff</h3>
+            <h3>Used the web audio API</h3>
+            <h3>Rendered a 3d wireframe</h3>
+            <p class="fragment">(pretty impressive)</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Get your hands dirty</h1>
+          </section>
         </section>
 
 
         <section>
           <h1>Thanks</h1>
           <h2>@benjaminbenben</h2>
+          <h3><a href="http://pusher.com">pusher.com</a></h3>
         </section>
+
 
       </div>
 
@@ -672,39 +502,39 @@ note => 440 * Math.pow(2, (note-49)/12)
           { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'bower_components/reveal.js/lib/js/zoom.js', condition: function() { return !document.body.classList; } },
           { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true },
-          { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad({classPrefix:'tomorrow'}); } },
 
         ]
       });
 
 
+      function populateCoJS(path) {
+        fetch('code/' + path)
+          .then(r => r.text())
+          .then(text => {
+            // console.log(text)
+            fetch('https://www.cojs.co/api/content', {
+              credentials: 'same-origin',
+              method: 'PUT',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                key: config.key,
+                token: config.token,
+                value: text
+              })
+            })
+          })
+      }
+
+
       Reveal.addEventListener( 'slidechanged', function( event ) {
         var slide = event.currentSlide
         if(slide.dataset.co) {
-          console.log("YES " + slide.dataset.co)
-
-          fetch('code/' + slide.dataset.co)
-            .then(r => r.text())
-            .then(text => {
-              console.log(text)
-              fetch('https://www.cojs.co/api/content', {
-                credentials: 'same-origin',
-                method: 'PUT',
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  key: config.key,
-                  token: config.token,
-                  value: text
-                })
-              })
-            })
-
+          populateCoJS(slide.dataset.co)
         }
-
-          // event.previousSlide, event.currentSlide, event.indexh, event.indexv
       } )
 
 
